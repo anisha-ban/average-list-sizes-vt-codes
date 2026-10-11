@@ -1,0 +1,96 @@
+
+\appendix
+%\subsection{Proof of Upper Bound in \Cref{prop::vt-code-size}} 
+
+\subsection{Bounds on Cardinalities of VT Codes} \label{app::vt-upper-bound} \label{app::vta-lower}
+
+We know from \cite[Corollary 2.3]{sloaneSingleDeletionCorrectingCodes2002} that for any $a \in [0,n]$,
+\begin{equation}
+    |\vt{1}{n}| \leq |\vt{a}{n}| \leq |\vt{0}{n}|. \label{eq::vta-bounds}
+\end{equation}
+
+Thus, to prove \Cref{lem::vt-bounds}, it suffices to upper-bound $|\vt{0}{n}|$ and to lower-bound $|\vt{1}{n}|$, as has been done in \Cref{lem::vt0-code-upper-bound} and \Cref{prop::vt1-lower-bound}, respectively. Combining these bounds with (\ref{eq::vta-bounds}) concludes the proof.
+
+
+\begin{lemma} \label{lem::vt0-code-upper-bound}
+    For any $n \geq 2$, it holds that
+    \begin{equation*}
+        |\vt{0}{n}| < \frac{2^n}{n+1} \parenv*{1+2^{-2(n+1)/3}}.
+    \end{equation*}
+\end{lemma}
+\begin{IEEEproof}
+ \cite[Corollary~2.3]{sloaneSingleDeletionCorrectingCodes2002} states that
+    \begin{align}
+        |\vt{0}{n}| = \frac{1}{2(n+1)} \sum_{\substack{d|n+1 \\ d \text{ odd}}} \phi(d)2^{(n+1)/d}, \label{eq::vt0-1}
+    \end{align}
+    where $\phi(d)$ (known as the Euler totient function \cite{EulersTotientFunction2026}) counts the positive integers up to the integer $d$ that are relatively prime to $d$. To simplify the summation in the preceding expression, we first use $\phi(1) = 1$ to arrive at
+    \begin{align}
+        \sum_{\substack{d|n+1 \\ d \text{ odd}}} \phi(d)2^{(n+1)/d}\leq 2^{n+1} + 2^{(n+1)/3}\sum_{\substack{d|n+1 \\ d \text{ odd}, d \geq 3}} \!\!\!\! \phi(d), \label{eq::vt0-phi-d}
+    \end{align}
+    
+    Next, we apply Gauss' observation~\cite{gauss1801disquisitiones} that ${\sum_{d|n} \phi(d) =n}$. This leads us to
+    \begin{align}
+        \sum_{\substack{d|n+1 \\ d \text{ odd}, d \geq 3}} \phi(d) \leq \sum_{d|n+1} \phi(d) - \phi(1) = n. \label{eq::vt0-3}
+    \end{align}
+        
+    Upon incorporating (\ref{eq::vt0-phi-d}) and (\ref{eq::vt0-3}) into (\ref{eq::vt0-1}), we obtain
+    \begin{align*}
+        |\vt{0}{n}| &\leq \frac{2^{n}}{n+1}  + 2^{(n-2)/3} \frac{n}{n+1}.
+    \end{align*}
+    Since $\tfrac{n}{n+1} < 1$, the statement of the lemma follows.
+\end{IEEEproof}
+
+%\subsection{Proof of Lower Bound in \Cref{prop::vta-lower bound}} 
+
+
+
+\begin{lemma} \label{prop::vt1-lower-bound}
+    For any $n \geq 2$, it holds that
+    \begin{equation*}
+        |\vt{1}{n}| > \frac{2^n}{n+1} \parenv*{1-2^{-\frac{2n-1}{3}}}.
+    \end{equation*}
+\end{lemma}
+\begin{IEEEproof}
+    We know from \cite[Corollary 2.3]{sloaneSingleDeletionCorrectingCodes2002} that
+    \begin{align}
+        |\vt{1}{n}| = \frac{1}{2(n+1)} \sum_{\substack{d|n+1 \\ d \text{ odd}}} \mu(d)2^{(n+1)/d}, \label{eq::vt1-size}
+    \end{align}
+    where $\mu(d)$ is called the Möbius function~\cite{mobius1832} and is defined as
+    \begin{align*}
+        \mu(d) = \begin{cases}
+            1 \!\! & \!\! \text{if } d=1, \\
+            (-1)^k \!\! & \!\! \text{if $d$ is the product of $k$ distinct primes,} \\
+            0 \!\! & \!\! \text{if $d$ is divisible by a square greater than $1$.}            
+        \end{cases}
+    \end{align*}
+
+    Since $\mu(d)$ can only assume one of the values in $\{-1,0,1\}$, it is easy to see that the summation in (\ref{eq::vt1-size}) is subject to the following lower bound.
+    \begin{align}
+        \sum_{\substack{d|n+1 \\ d \text{ odd}}} \mu(d)2^{(n+1)/d} &\geq  2^{n+1} - \sum_{\substack{d|n+1 \\ d \text{ odd}, d \geq 3}} 2^{(n+1)/d}. \label{eq::mu-d-sum}
+    \end{align}
+
+    Note that in the summation on the right hand side, each term is of the form $2^a$ where $a \in [1, \floor{\frac{n+1}{3}}]$. This allows us to simplify the bound in (\ref{eq::mu-d-sum}) as
+    \begin{align*}
+        \sum_{\substack{d|n+1 \\ d \text{ odd}}} \mu(d)2^{(n+1)/d} &\geq  2^{n+1} - (2 + 2^2 + \ldots + 2^{\floor{\frac{n+1}{3}}}) \\
+        &= 2^{n+1} - (2^{\floor{\frac{n+1}{3}}+1} - 2) \\
+        &> 2^{n+1} - 2^{\frac{n+1}{3}+1} = 2^{n+1} \parenv*{\!1-2^{-\frac{2n-1}{3}}\!}.
+    \end{align*}
+
+    Upon applying this to (\ref{eq::vt1-size}), we are led to the statement of~the lemma.    
+\end{IEEEproof}
+
+\subsection{Auxiliary Lemma for Proof of \Cref{th::lower-bound-2-del-avg-vt}} \label{app::sum-binom-jensen}
+
+\begin{lemma} \label{lem::binom-sum-jensen}
+    For any integer $n \geq 1$, it holds that
+    \begin{align*}
+        \sum_{r=0}^{n} \binom{n}{r} \frac{1}{(r+6)^{2}} \geq \frac{2^{n}}{\left(\frac{n}{2}+6\right)^2}.
+    \end{align*}
+\end{lemma}
+\begin{IEEEproof}
+    Assume a random variable $X \sim \mathrm{Bin}(n,1/2)$ so that for any $r \in [0,n]$, we have $\prob(X = r) = 2^{-n} \binom{n}{r}$. Since $(r+6)^{-2}$ is a convex function of $r$, we can apply Jensen's inequality~\cite{mitzenmacherProbabilityComputingRandomized2005} to write
+    \begin{align}
+        \sum_{r=0}^{n} \binom{n}{r} \frac{1}{(r+6)^{2}} &= 2^{n} \mathbb{E}\sparenv*{\frac{1}{(X+6)^2}}\nonumber \\
+        &\geq \frac{2^{n}}{(\mathbb{E}[X]+6)^2} = \frac{2^{n}}{(\frac{n}{2}+6)^2}.\nonumber \qedhere
+    \end{align}
+\end{IEEEproof}

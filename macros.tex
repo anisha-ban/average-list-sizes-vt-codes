@@ -1,0 +1,326 @@
+%\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{bbm}
+
+\usepackage{dsfont}
+\newcommand{\mathbbm}[1]{\mathds{#1}}  % keeps existing code working
+
+\usepackage[normalem]{ulem}
+%\usepackage{thmtools}
+\usepackage{mathtools}
+%\usepackage{thm-restate}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+%\usepackage{fullpage} <---- causes problems with margins
+\usepackage{bm}
+\usepackage{xcolor, xpatch}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{enumitem}
+% provides \includegraphics{...} to
+                              % include graphics (pdf format)
+\usepackage{booktabs}         % fixes poor spacing in tables and
+                              % provides \toprule, \midrule, \bottomrule
+\usepackage[backend=bibtex,bibstyle=ieee,citestyle=numeric-comp,url=false,doi=false,isbn=false]{biblatex}
+%\usepackage{algorithmicx}    % provides an algorithmic environment for
+                              % describing algorithms. See
+                              % https://ctan.org/pkg/algorithmicx
+\usepackage[font=footnotesize,skip=10pt]{caption}
+% \usepackage[caption=false,font=footnotesize]{subfig}
+                              % provides subnumbering within a
+                              % floating figure or table
+
+%% For arrays and multiple-line equations, use the
+%% IEEEeqnarray-environment. See
+%%              https://moser-isi.ethz.ch/manuals.html#eqlatex  
+%% for instructions.
+
+%% Do NOT use amsthm or hyperref!
+%% -IEEEtran provides its own versions of theorems.
+%% -IEEEXplore does not accept submissions with hyperlinks
+
+
+%%%%%
+%% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% \usepackage[draft]{hyperref}
+% \hypersetup{
+% 	colorlinks   = true, %Colours links instead of ugly boxes
+% 	urlcolor     = blue, %Colour for external hyperlinks
+% 	linkcolor    = blue, %Colour of internal links
+% 	citecolor   = red %Colour of citations
+% }
+\usepackage{pgfplots}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\makeatletter
+\xpatchcmd{\proof}{\topsep6\p@\@plus6\p@\relax}{}{}{}
+\makeatother
+
+
+% \newtheorem{thm}{theorem}[section]
+% \newtheorem{prop}[thm]{Proposition}
+% \newtheorem{lemma}[thm]{Lemma}
+% \newtheorem{theorem}[thm]{Theorem}
+% \newtheorem{remark}[thm]{Remark}
+% \newtheorem{cor}[thm]{Corollary}
+% \newtheorem{con}[thm]{Condition}
+% \newtheorem{claim}[thm]{Claim}
+% \newtheorem{definition}[thm]{Definition}
+% \newtheorem{cnst}[thm]{Construction}
+
+% \crefname{section}{Section}{Sections}
+% \crefname{subsection}{Section}{Sections}
+% \crefname{equation}{Eq.}{Equations}
+% \crefname{enumi}{part}{parts}
+% \crefname{table}{Table}{Tables}
+% \crefname{figure}{Figure}{Figures}
+% \crefname{algocf}{Algorithm}{Algorithms}
+
+\usepackage{amsthm}  
+\usepackage{aliascnt} % allows for a single counter in \autoref'ed theorems
+\usepackage[draft]{hyperref} % cross-reference within document. Options: [draft,hidelinks,linktocpage]
+%\usepackage[hidelinks,linktocpage]{hyperref}
+\usepackage{cleveref} % enhances LaTeX's cross-referencing features
+%\usepackage{upref}
+%\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+\crefname{theorem}{Theorem}{Theorems}
+
+% \theoremheaderfont{\normalfont\bfseries}
+% \theorembodyfont{\normalfont}
+\theoremstyle{plain}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\crefname{lemma}{Lemma}{Lemmas}
+
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\crefname{definition}{Definition}{Definitions}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\crefname{corollary}{Corollary}{Corollaries}
+
+\newaliascnt{claim}{theorem}
+\newtheorem{claim}[claim]{Claim}
+\aliascntresetthe{claim}
+\crefname{claim}{Claim}{Claims}
+
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{Conjecture}
+\aliascntresetthe{conjecture}
+\crefname{conjecture}{Conjecture}{Conjectures}
+
+\newaliascnt{question}{theorem}
+\newtheorem{question}[question]{Question}
+\aliascntresetthe{question}
+\crefname{question}{Question}{Questions}
+
+\newaliascnt{problem}{theorem}
+\newtheorem{problem}[problem]{Problem}
+\aliascntresetthe{problem}
+\crefname{problem}{Problem}{Problems}
+
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\crefname{example}{Example}{Examples}
+
+\newaliascnt{oquestion}{theorem}
+\newtheorem{oquestion}[oquestion]{Open Question}
+\aliascntresetthe{oquestion}
+\crefname{oquestion}{Open Question}{Open Questions}
+
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\crefname{remark}{Remark}{Remarks}
+
+
+
+%\theoremstyle{remark}
+
+
+% \newtheorem*{lemma*}{Lemma}
+% \newtheorem*{theorem*}{theorem}
+
+% ------- Math environments
+
+% \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+% \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+% %\DeclarePairedDelimiter\ceilenv{\lceil}{\rceil}
+% %\DeclarePairedDelimiter\floorenv{\lfloor}{\rfloor}
+% \DeclarePairedDelimiter\parenv{\lparen}{\rparen}
+% \DeclarePairedDelimiter\sparenv{\lbrack}{\rbrack}
+% \DeclarePairedDelimiter\bracenv{\lbrace}{\rbrace}
+% \DeclarePairedDelimiterX\mathset[2]{\lbrace}{\rbrace}{#1 : #2}
+
+
+% ------- Calligraphy
+
+\newcommand{\bfa}{{\boldsymbol a}}
+\newcommand{\bfb}{{\boldsymbol b}}
+\newcommand{\bfc}{{\boldsymbol c}}
+\newcommand{\bfd}{{\boldsymbol d}}
+\newcommand{\bfe}{{\boldsymbol e}}
+\newcommand{\bff}{{\boldsymbol f}}
+\newcommand{\bfg}{{\boldsymbol g}}
+\newcommand{\bfh}{{\boldsymbol h}}
+\newcommand{\bfi}{{\boldsymbol i}}
+\newcommand{\bfj}{{\boldsymbol j}}
+\newcommand{\bfk}{{\boldsymbol k}}
+\newcommand{\bfl}{{\boldsymbol l}}
+\newcommand{\bfm}{{\boldsymbol m}}
+\newcommand{\bfn}{{\boldsymbol n}}
+\newcommand{\bfo}{{\boldsymbol o}}
+\newcommand{\bfp}{{\boldsymbol p}}
+\newcommand{\bfq}{{\boldsymbol q}}
+\newcommand{\bfr}{{\boldsymbol r}}
+\newcommand{\bfs}{{\boldsymbol s}}
+\newcommand{\bft}{{\boldsymbol t}}
+\newcommand{\bfu}{{\boldsymbol u}}
+\newcommand{\bfv}{{\boldsymbol v}}
+\newcommand{\bfw}{{\boldsymbol w}}
+\newcommand{\bfx}{{\boldsymbol x}}
+\newcommand{\bfy}{{\boldsymbol y}}
+\newcommand{\bfz}{{\boldsymbol z}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfB}{{\mathbf B}}
+\newcommand{\bfC}{{\mathbf C}}
+\newcommand{\bfD}{{\mathbf D}}
+\newcommand{\bfE}{{\mathbf E}}
+\newcommand{\bfF}{{\mathbf F}}
+\newcommand{\bfG}{{\mathbf G}}
+\newcommand{\bfH}{{\mathbf H}}
+\newcommand{\bfI}{{\mathbf I}}
+\newcommand{\bfJ}{{\mathbf J}}
+\newcommand{\bfK}{{\mathbf K}}
+\newcommand{\bfL}{{\mathbf L}}
+\newcommand{\bfM}{{\mathbf M}}
+\newcommand{\bfN}{{\mathbf N}}
+\newcommand{\bfO}{{\mathbf O}}
+\newcommand{\bfP}{{\mathbf P}}
+\newcommand{\bfQ}{{\mathbf Q}}
+\newcommand{\bfR}{{\mathbf R}}
+\newcommand{\bfS}{{\mathbf S}}
+\newcommand{\bfT}{{\mathbf T}}
+\newcommand{\bfU}{{\mathbf U}}
+\newcommand{\bfV}{{\mathbf V}}
+\newcommand{\bfW}{{\mathbf W}}
+\newcommand{\bfX}{{\mathbf X}}
+\newcommand{\bfY}{{\mathbf Y}}
+\newcommand{\bfZ}{{\mathbf Z}}
+\newcommand{\bfzero}{{\mathbf 0}}
+\newcommand{\bfone}{{\mathbf 1}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+% ------- Math environments
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ceilenv{\lceil}{\rceil}
+\DeclarePairedDelimiter\floorenv{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\parenv{\lparen}{\rparen}
+\DeclarePairedDelimiter\sparenv{\lbrack}{\rbrack}
+\DeclarePairedDelimiter\bracenv{\lbrace}{\rbrace}
+\DeclarePairedDelimiter\multbrace{\lbrace\!\!\lbrace}{\rbrace\!\!\rbrace}
+%\DeclarePairedDelimiterX\mathset[2]{\lbrace}{\rbrace}{#1 \mathrel{}\delimsize\vert\mathrel{} #2}
+\DeclarePairedDelimiterX\mathset[2]{\lbrace}{\rbrace}{#1 : #2}
+\DeclarePairedDelimiterX\multset[2]{\lbrace\!\!\lbrace}{\rbrace\!\!\rbrace}{#1 : #2}
+
+
+% ------- New Math symbols
+\newcommand{\deq}{\mathrel{\triangleq}}
+
+
+
+% ------- New Math Operators
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fqm}[1]{\mathbb{F}_{q^{#1}}}
+\newcommand{\Ftwo}{\mathbb{F}_2}
+\newcommand{\dham}{d_{\mathrm{H}}}
+\newcommand{\ded}{d_{\textup{ed}}}
+\newcommand{\dlev}{d_{\mathrm{L}}}
+\newcommand{\ballins}[2]{\cI_{#2}(#1)}
+\newcommand{\balldel}[2]{\cD_{#2}(#1)}
+\newcommand{\balldelp}[2]{\cD'_{#2}(#1)}
+\newcommand{\ballinsp}[2]{\cI'_{#2}(#1)}
+
+\newcommand{\balpha}{{\boldsymbol\alpha}}
+\newcommand{\prob}{\mathrm{Pr}}
+\newcommand{\ex}{\mathbb{E}}
+
+
+\newcommand{\vt}[2]{\mathcal{VT}_{#1}(#2)}
+\newcommand{\tauD}{\tau_{\mathrm{D}}}
+\newcommand{\tauI}{\tau_{\mathrm{I}}}
+\newcommand{\indicator}{\mathbbm{1}}
+\newcommand{\listsub}[2]{\bar{L}_\mathrm{sub}(#1,#2)}
+\newcommand{\listins}[2]{\bar{L}_\mathrm{ins}(#1,#2)}
+\newcommand{\listdel}[2]{\bar{L}_\mathrm{del}(#1,#2)}
+%\renewcommand{\listdel}[2]{\smash[b]{\listdel{#1}{#2}}}
+
+
+
+% --------- Davey-MacKay channel params
+\newcommand{\pin}{P_{\mathrm{i}}}
+\newcommand{\pd}{P_{\mathrm{d}}}
+\newcommand{\ps}{P_{\mathrm{s}}}
+\newcommand{\pt}{P_{\mathrm{t}}}
+\newcommand{\tr}{\mathtt{Tr}}
+\newcommand{\del}{\mathtt{Del}}
+
+
+% -------------- Comments
+
+\newcommand{\rc}[1]{{\color{blue}[Roni: #1]}}
+\newcommand{\ab}[1]{{\color{red}{[AB: #1]}}}
+\newcommand{\aw}[1]{\textcolor{magenta}{[Antonia: #1]}}
+\newcommand{\ey}[1]{{\color{red}[Eitan: #1]}}
+
+\bibliography{resources/literature}
+\renewcommand*{\bibfont}{\footnotesize}
+
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}

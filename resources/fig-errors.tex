@@ -1,0 +1,55 @@
+\begin{figure*}[t]
+	\begin{center}
+		\scalebox{0.7}{
+			\begin{tikzpicture}[every node/.style={draw=none, fill=none, font=\large}]
+				\def\hsep{4.5cm}
+				
+				% ------------- case 1 ----------------
+				\node[align=center] (ya) {$\bfy=010\underline{111}01$};
+				
+				\node[align=center, xshift=\hsep] (vadel) {$0101101$};
+				
+                \node[align=center, xshift=2*\hsep] (va) {$\bfv_1=010101$};
+
+                % ------------- case 2 ----------------
+                \node[xshift=3*\hsep] (yb) {$\bfy=0\underline{1}0111\underline{0}1$};
+				
+				\node[align=center, xshift=4*\hsep, yshift=1.2cm] (vbdela) {$0101111$};
+				
+				\node[align=center, xshift=4*\hsep, yshift=-1.2cm] (vbdelb) {$0011101$};
+
+                \node[align=center, xshift=5*\hsep] (vb) {$\bfv_2=001111$};
+                
+                % ------ text labels ------------------
+                \node[align=center, xshift=\hsep, yshift=2.05cm] (inta) {$\balldel{\bfy}{1} \cap \ballins{\bfv_1}{1}$};
+                \node[align=center, xshift=4*\hsep, yshift=2.05cm] (intb) {$\balldel{\bfy}{1} \cap \ballins{\bfv_2}{1}$};
+
+                % --------------------------------------
+				% Arrows 
+                \draw[-{Stealth[length=5pt, width=3pt]}] (ya.east) to node[pos=0.5, above=2pt, align=center]{$1$ Deletion} (vadel.west);
+
+                \draw[-{Stealth[length=5pt, width=3pt]}] (vadel.east) to node[pos=0.5, above=2pt, align=center]{$1$ Deletion} (va.west);
+                
+				\draw[-{Stealth[length=5pt, width=3pt]}, bend left=14] (yb.east) to node[pos=0.5, sloped, above=2pt, align=center, font=\small]{$1$ Deletion} (vbdela.west);
+
+                \draw[-{Stealth[length=5pt, width=3pt]}, bend left=-14] (yb.east) to node[pos=0.5, sloped, above=2pt, align=center, font=\small]{$1$ Deletion} (vbdelb.west);
+
+                \draw[-{Stealth[length=5pt, width=3pt]}, bend left=14] (vbdela.east) to node[pos=0.5, sloped, above=2pt, align=center, font=\small]{$1$ Deletion} (vb.west);
+
+                \draw[-{Stealth[length=5pt, width=3pt]}, bend left=-14] (vbdelb.east) to node[pos=0.5, sloped, above=2pt, align=center, font=\small]{$1$ Deletion} (vb.west);
+				
+				% \draw[-{Stealth[length=5pt, width=3pt]}, bend left=6] 
+				% 	(start.east) to node[pos=0.5, sloped, above=2pt, align=center, font=\small]{Substitution} (sub.west);
+				
+				% \draw[-{Stealth[length=5pt, width=3pt]}, bend right=6] 
+				% 	(start.east) to node[pos=0.5, sloped, below=2pt, align=center, font=\small]{Deletion} (del.west);
+				
+				% \draw[-{Stealth[length=5pt, width=3pt]}, bend right=14] 
+				% 	(start.east) to node[pos=0.5, sloped, below=2pt, align=center, font=\small]{Insertion} (ins.west);
+			\end{tikzpicture}
+            }
+	\end{center}
+    \vspace{-3.3mm}
+	\caption{Demonstration of different deletion patterns affecting $\bfy$, leading to different values of $|\balldel{\bfy}{1} \cap \ballins{\bfv}{1}|$ in \Cref{lem::taud_upper_bound}\label{fig::intersection-sizes}. In this example, we consider $\bfy = 01011101$, and two vectors in its two-deletion sphere $\balldel{\bfy}{2}$, namely $\bfv_1=010101$ and $\bfv_2=001111$. We see that $|\balldel{\bfy}{1} \cap \ballins{\bfv_1}{1}| =1$, which is a consequence of the fact that both deletion events affect the same run, i.e., $\bfv_1 \in \balldelp{\bfy}{2}$. On the contrary, $\bfv_2$ results from a deletion in two distinct runs of~$\bfy$, i.e., $\bfv_2 \not\in \balldelp{\bfy}{2}$, leading to $|\balldel{\bfy}{1} \cap \ballins{\bfv_2}{1}| = 2$.}
+    \vspace{-3.8mm}
+\end{figure*}
